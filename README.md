@@ -99,6 +99,31 @@ This searches a range or array for a match and returns the corresponding item fr
 =INDEX(P2:P10, MATCH(A3,H2:H10,0))
 
 
+### Power BI
+Once you open Power Bi click on Get data or Blank 
+* Click on get data from another source
+* Click on e.g. Excel workbook and then click on connect
+* select your file
+* Under the Navigator, select the sheet you want to use
+* Click load or transform
+* After loading your file, click on report tab from the left hand side. This is where we will build our visualization. 
+* Go to the visualization section on the right hand side
+* select the columns you want to visualize under the field and then select the visualization type you want
+* To add Legend, drag and drop the store column in side the legend under the visualization section.
 
+We are trying to find out which store we are spending the most amount of money 
 
+For the second 
+* we will select product. price, and store
+* select the clustered column charts
 
+This will show show us how much we are paying per store for each product
+
+* To change the title of the charts, click on the each chart and then click on format your visual in the visualization section
+* Click on General
+* Click Title and then give the desired name you want 
+
+* Click on Visuals
+* toggle on **Data labels** it actual rounding the numbers but to change this to an actual number
+* Click on Data labels,  Click on **Values**, **Display Unit**
+* change the Auto to none

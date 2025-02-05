@@ -1,0 +1,51 @@
+{
+  "config": "{\"version\":\"5.59\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU10\",\"version\":\"5.61\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true,\"useEnhancedTooltips\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU10",
+            "path": "BaseThemes/CY24SU10.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Page 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "547db15c29453a9cb242",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"2271f56c9dc96e05460b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":535.8530183727034,\"y\":151.1811023622047,\"z\":1000,\"width\":744.1469816272966,\"height\":569.4488188976378,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(Sheet1.Price)\"}],\"Category\":[{\"queryRef\":\"Sheet1.Product\",\"active\":true}],\"Series\":[{\"queryRef\":\"Sheet1.Store\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Sheet1\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Price\"}},\"Function\":0},\"Name\":\"Sum(Sheet1.Price)\",\"NativeReferenceName\":\"Sum of Price\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Product\"},\"Name\":\"Sheet1.Product\",\"NativeReferenceName\":\"Product\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Store\"},\"Name\":\"Sheet1.Store\",\"NativeReferenceName\":\"Store\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Price\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Best Store for Product'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 569.45,
+          "width": 744.15,
+          "x": 535.85,
+          "y": 151.18,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"80076fc7cda2b46e6d63\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":151.1811023622047,\"z\":0,\"width\":535.8530183727034,\"height\":566.0892388451443,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Sheet1.Store\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(Sheet1.Price)\"}],\"Series\":[{\"queryRef\":\"Sheet1.Store\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"Sheet1\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Store\"},\"Name\":\"Sheet1.Store\",\"NativeReferenceName\":\"Store\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Price\"}},\"Function\":0},\"Name\":\"Sum(Sheet1.Price)\",\"NativeReferenceName\":\"Sum of Price\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"Price\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"enableTitleDataLabel\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Total by Store'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 566.09,
+          "width": 535.85,
+          "x": 0.00,
+          "y": 151.18,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}
