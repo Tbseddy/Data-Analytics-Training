@@ -99,8 +99,8 @@ This searches a range or array for a match and returns the corresponding item fr
 =INDEX(P2:P10, MATCH(A3,H2:H10,0))
 
 
-### Power BI
-Once you open Power Bi click on Get data or Blank 
+## Power BI
+Once you open Power Bi click on Get data or Blank report 
 * Click on get data from another source
 * Click on e.g. Excel workbook and then click on connect
 * select your file
@@ -127,3 +127,4 @@ This will show show us how much we are paying per store for each product
 * toggle on **Data labels** it actual rounding the numbers but to change this to an actual number
 * Click on Data labels,  Click on **Values**, **Display Unit**
 * change the Auto to none
+
