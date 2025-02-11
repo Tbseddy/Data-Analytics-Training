@@ -128,3 +128,33 @@ This will show show us how much we are paying per store for each product
 * Click on Data labels,  Click on **Values**, **Display Unit**
 * change the Auto to none
 
+
+### How to use Power Querry in Power BI
+* Pull both the **purchase overview** and the **pivot table** sheet
+* Click in Transform (on the left hand side under the **Querry** you can toggle between the two sheets) On the far right side you have the **Querry settings**
+* Click on Transform from the Menu bar and select use first row as Header after deleting the first two empty rows
+* Filter the first column and remove empty rows
+* Filter the second column and use **Text filters** to remove the Total in the column using **Does not contain** you will then type in the text you don't want
+* Remove the last column which is the GrandTotal 
+* Select the last four columns(dates column) and click on **Transform tab** and click on **Unpivot columns** 
+* After that change the datatype to date
+* Change the value to Product cost and the location to Store
+* Select the pivot table
+* Change the first row to column
+* select Jan to April column and unpivot it
+* Click on close and apply
+
+### How to Create and Manage Relationships in Power BI
+* After the data has been loaded
+* select the three sheets
+* Click on Model
+
+Note: Change the cross filter direction to both, under the edit relationship
+
+After creating the relationships between the three tables, we want to know how many product ids are being in the different states. 
+
+* We will create a new measure (click on new measure from Table tools), type count(select apocalypse store product ID)
+* you will then click on the checkmark to create it.
+* **Measure** is then added under the apocalypse store.
+
+### How to use DAX (Data Analysis Expressions)
