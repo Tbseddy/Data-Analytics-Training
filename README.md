@@ -158,3 +158,17 @@ After creating the relationships between the three tables, we want to know how m
 * **Measure** is then added under the apocalypse store.
 
 ### How to use DAX (Data Analysis Expressions)
+DAX is a library of functions and operators that help you build formulas. You can use it to create measures and calculated columns within Power BI.
+
+We will be using New measure and New column under the Table tools to create our DAX function
+
+* Go report
+* Right click on Apocalypse sales and select new measure. we can rename the measure to **count of sales** 
+* Next, we want to know our big product that is selling
+* select product name
+* Right click on Apocalypse sales and select new measure. we can rename the measure to **Sum of product sold** 
+* Input =sum(unit prize)
+
+Adding **x** to a sum, average e.t.c can make them an iterator function
+
+### How to use Drill Down in Power BI
