@@ -100,6 +100,17 @@ This searches a range or array for a match and returns the corresponding item fr
 
 
 ## Power BI
+
+The three main components of Power BI are:
+1. Power BI Desktop
+2. Power BI Service
+3. Power BI Report Builder
+
+Power BI Desktop has 3 views: 
+* Report view: This is wher you load your data in. In the middle of your screen where it says build visuals with your data is known as the canvas
+* Data view: 
+* Modeling view:
+
 Once you open Power Bi click on Get data or Blank report 
 * Click on get data from another source
 * Click on e.g. Excel workbook and then click on connect
@@ -172,3 +183,13 @@ We will be using New measure and New column under the Table tools to create our 
 Adding **x** to a sum, average e.t.c can make them an iterator function
 
 ### How to use Drill Down in Power BI
+
+
+
+### Join Types in Power BI
+1. Left Outer: All the records from first the table and only the matching records from the second table.
+2. Right Outer: All the records from second the table and only the matching records from the first table.
+3. Full Outer: All rows from both tables.
+4. Inner: Only matching rows
+5. Left Anti: Rows only in first table
+6. Right Anti: Rows only from second table.
