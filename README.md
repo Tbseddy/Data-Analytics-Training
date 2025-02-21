@@ -111,6 +111,43 @@ Power BI Desktop has 3 views:
 * Data view: 
 * Modeling view:
 
+**Heirarchy:** This is the container of sorts that you would like to group together. For instance a Date Hierarchy can be broken dowun into: Year, month, day & Quarter
+
+Databases usually have four different objects in them. The tables are the only object that holds data, there could also be queries, forms and reports. There could be macros and modules as database objects.
+
+Icons for queries looks like a double table icon
+
+File - Options & Settings - Options - Current - Data load - Relationships - Checkmark all three boxes under it. 
+
+To import a data from the Internet: Copy the URL click on Get data - other - web - paste the url - 
+
+#### Optimizing Performance
+If you connect to data source, it's only going to bring in the from an excel file that resides in the excel application. If you want to bring in the other data you are going to have to import the file into Power BI. For instance the **customer data** 
+
+If you inherit a file with a power pivot model in it and you don't have power pivot, Power BI can access the data model.
+
+Open the Customer Data file in Excel. Click on Power Pivot - Manage. This will take us into the Power data pivot model, this is the underlying data that is providing subsets of itself for the pivot table in the Excel application. i.e feeding the pivot tables in the Excel application. If we want to look at the relationships here, Up on the ribbon we go to **diagram view** 
+
+the diagram view is similar to model view in Power BI
+
+File - Import - Power Query, Power pivot, Power view - Select Customer Data
+
+Knowing when to import data versus when to connect data will optimize your performance in Power BI 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Once you open Power Bi click on Get data or Blank report 
 * Click on get data from another source
 * Click on e.g. Excel workbook and then click on connect
