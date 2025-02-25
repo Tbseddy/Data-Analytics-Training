@@ -132,7 +132,9 @@ the diagram view is similar to model view in Power BI
 
 File - Import - Power Query, Power pivot, Power view - Select Customer Data
 
-Knowing when to import data versus when to connect data will optimize your performance in Power BI 
+Knowing when to import data versus when to connect data will optimize your performance in Power BI. If we didn't import the data model data, we will have to the data tables that we didn't import from excel, which is the subset of the overall data, and we would have to merge them together to get a complete picture of the data. 
+
+If you make a change in the locally stored file, Excel file in particular, and you refresh in Power BI Desktop, it will update the information
 
 
 
@@ -141,12 +143,7 @@ Knowing when to import data versus when to connect data will optimize your perfo
 
 
 
-
-
-
-
-
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Once you open Power Bi click on Get data or Blank report 
 * Click on get data from another source
@@ -221,6 +218,7 @@ Adding **x** to a sum, average e.t.c can make them an iterator function
 
 ### How to use Drill Down in Power BI
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 ### Join Types in Power BI
@@ -230,3 +228,59 @@ Adding **x** to a sum, average e.t.c can make them an iterator function
 4. Inner: Only matching rows
 5. Left Anti: Rows only in first table
 6. Right Anti: Rows only from second table.
+
+
+Data Shaping means transforming the data by renaming columns or tables, removing rows, setting the first rows as headers
+
+Merging information from one table into another table, but they must have one column in common. 
+* Click on Transform data - Combine - mergge queries - merge queries as new
+* Select the common field from the first table 
+* Select the sceond table and select the common field
+* Under Join kind, select right outer
+* Click OK
+* You will notice you now have a new query on the left side of your screen and it gives it a default name of Merge1
+
+#### Data Profiling
+Data profiling tools are tools that can be used to give an in-depth assessment of the quality of your data
+* Transform data - view tab - Data Preview - 
+* Show whitespace is always checkmarked by default, you can then checkmark the rest to check the quality of your data
+
+#### Data Modeling
+This can b defined as making the data you use in Power BI as accurate and intentional as possible. This module has several lessons:
+* **Working with tables:** Like formating changes e.g the discount column to be formatted as percentage. We are going to want unit price and shipping costs columns to be formatted as currency. 
+    * Click on any cell in the discount column and you will notice you'll get a new tab on ribbon called **column tools** click percentage icon in the formatting group
+    * We will change the order date format too
+    * We will categorize some location fields for mapping purposes, such as region, state, cities, postal code fields. There are mapping visualization that will give more data about a location if those location columns are categorized. 
+    * Select any cell in the region column and on the same column tools tab in the properties group you will see **data category** 
+    * Categorize State or province, postal code, 
+    * Another optimizing performance tip is breaking down your tables when applicable. One large table is not the answer for an effective data model.
+    * **Fact Tables:** It keeps numeric data that might be aggregated in reporting visualizations. e.g., Sales, Profits
+    * **Dimension Tables:** It keeps descriptive information that can slice and dice the data in the fact table.
+      * It requires a key field. e.g Customer Info, Product Info
+    * A golden rule is that you should not have fact and decscriptive fields in the same table. By breaking down your tables more efficiently, you will optimize the performance of your data set.
+    * We will now breakdown the order table: We will make a copy of the orders query and transform it into a customer's dimension query. In the query pane on the left, right click on orders, click copy, right click on an empty space in the pane and paste. 
+      * You will then use the new order table as customer dimension table. Select columns the begins with customer, you then select other columns such as: state, region, city, postal code, discount - select some few columns 33.20 (intermediate) You will then rename the DimCustomer. A dimension table has to have field key, this table already has which is Customer ID
+      * You will then make another copy of the orders table and then choose four columns that begins with product and include them only in the new table. you will then rename it DimProducts. This table doesn't have a field key, so we will have to create one.
+      * We will then create another column that we can assign a numeric value to each unique product name.
+      * Click on Add column - Index column - Custom -choose your starting number e.g. 001 and type the increment number e.g. 1 click OK
+      * Save your changes and load them back into the data model in Power BI desktop.
+      * The next thing is to create an heirarchy based on the region, field in the orders table.
+
+
+* **Dimensions and Hierarchies**
+    A heirarchy is a container of sorts, a way of grouping related fields together. When creating  a heirarchy, you want to start with the broadest category in terms of column and end with the narrowest category. In order to do this this 
+  * We right click on **region** in the fields pane under the **orders table** and we are going to select **create Hierarchy**
+  * Now, we want to add the next broadest category after **region** that would be **state** Right click on **State** hover over **add to hierarchy** and click on **region hierarchy**
+  * We are going to add two more fields to the hierarchy. Right click on **city** **add to hierarchy** click on **region hierarchy** and do the same for the **postal code** field
+
+* **Create Model Relationships**
+    * One-to-One (1:1): One manager has one region
+    * One-to-Many (1:*): One customer has many orders, the most common
+    * Many-to-One (*:1): Same as above
+    * Many-to-Many (*:*): Many students are in many classes(not applicable to our data)
+
+
+* **Review the Model Interface**
+
+
+* **Enforce Row-level Security (RLS)**
