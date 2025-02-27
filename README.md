@@ -98,6 +98,32 @@ This searches a range or array for a match and returns the corresponding item fr
 
 =INDEX(P2:P10, MATCH(A3,H2:H10,0))
 
+#### Text to Columns
+The Text to Columns feature in Excel is used to split data in a single column into multiple columns based on a specific delimiter (such as commas, spaces, or tabs) or a fixed width.
+
+Steps to Use Text to Columns in Excel:
+* Select the Data
+
+* Click on the column that contains the text you want to split.
+* Open the Text to Columns Wizard
+
+* Go to the Data tab on the ribbon.
+* Click Text to Columns.
+* Choose the Data Type
+
+* Delimited: Choose this if your data is separated by commas, tabs, spaces, or other characters.
+* Fixed Width: Choose this if the data has a consistent structure with columns of equal width.
+Specify Delimiters or Set Column Widths
+
+* If you selected Delimited, choose the delimiter (Comma, Tab, Space, Semicolon, or Other).
+* If you selected Fixed Width, manually set column break lines.
+Format and Finish
+
+* Choose the Column Data Format (General, Text, Date, etc.).
+* Select where you want the new columns to appear (default is the same column).
+* Click Finish.
+
+
 
 ## Power BI
 
@@ -216,7 +242,6 @@ We will be using New measure and New column under the Table tools to create our 
 
 Adding **x** to a sum, average e.t.c can make them an iterator function
 
-### How to use Drill Down in Power BI
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -281,6 +306,147 @@ This can b defined as making the data you use in Power BI as accurate and intent
 
 
 * **Review the Model Interface**
-
+    * A featured table is an easy way to share specific table information with other users, either through workspaces and online spaces 
 
 * **Enforce Row-level Security (RLS)**
+    RLS in Power BI can be used to restrict data access for given users. Filters restrict data access at the row level, and you can define filters within roles. In the Power BI service, members of a workspace have access to datasets in the workspace. RLS doesn't restrict this data access. In Desktop, you set up the security roles and in the Service, you assign users to those roles.
+
+    * We are goint to set up a role that allow users that are assigned to that role to view order information just for the east region. 
+    * We will be using the **modeling tab** on the Ribbon 
+      * Click on **Modeling**
+      * Go to **Security** 
+      * Click on **Manage roles**
+      * Click on **New**
+      * Double click on Untitled and rename it East
+      * You will then click the **orders** table to let it know that you are using a field from the orders table
+      * To the right you are going to put in a simple DAX expression and click on **Switch to DAX editor**
+      * You will then type [region]="East". What this means is for this role called **East** it only allow users that are assigned to it to see the Eastern region information from the **Orders** table
+      * Click save
+
+#### How to Publish in Power BI
+* Click on **Publish**
+* Input your company email and click continue
+* Click continue
+* Select My workspace
+* It will publish both the report(the one with bar) and dataset
+
+* You can then go to my workspace in your Power BI service 
+
+
+#### To Assign Roles to our East an West
+* Hover over the dataset and click on the vertical/horizontal ellipsis more option button
+* Select security  
+* You will then see the groups you have created e.g East and West
+* Select one of them and go to the **members** area 
+* You will then add people or groups email addresses you want to give access toClick add
+
+
+#### DAX (Data Analysis Expressions)
+DAX is a library of functions and operators that help you build formulas. You can use it to create measures and calculated columns within Power BI.
+
+DAX is a collection of functions, operators, and constants that can be used in a formula, or expression, to calculate and return one or more values.
+
+DAX context enables you to perform dynamic analysis, in which the results of a formula can change to reflect the current row or cell selection and any related data.
+
+##### Create Calculated Tables
+We want to use distinct function in DAX to create a calculated table that will return one column of all the distinct order IDs from Orders table.
+* Go to Modeling tab - Under calculations - Click New table
+* Name the table **Distinct Order Count** (what we really want is a count of the distinct order IDs in the orders table) Distinct here means the total number of different values, regardless how many times  those values appear in the table. 
+* Distinct Order Count = DISTINCT(Orders[Order ID])
+
+In the context of data, the term **distinct** refers to unique values in a dataset, meaning values that appear only once or without duplicates. So the DAX distinct function returns a one column table populated with distinct values.
+
+
+##### Create Calculated Columns
+We want to calculate the difference between the order date and the shipment date. We will be using the **DATEDIFF** function
+* Right click Orders table from the fields pane
+* Select new column
+* Rename it Days to ship
+* Syntax: Days to Ship = DATEDIFF(Orders[Order Date].[Date],Orders[Ship Date].[Date],DAY)
+
+Let's creat another calculated column that shows ranking by sales, using the **RANKX** function. We want to do the ranking of the sales field in the orders table 
+
+* Click on orders from the fild pane
+* From the **Column Tools** tab click on New column
+* Rename it **Sale Ranking Lowest** 
+* Sales Ranking Lowest No Skip = RANKX(Orders,Orders[Sales],,ASC,Dense)
+* 
+
+
+##### Create Quick measures
+Measures could be called virtual calculations, they don't become part of your data set, they only calculate when you add them to a report visualization.
+
+If a file size is an issue, you may want to use measure instead of calculated columns or calculated tables.
+
+There are two variations of measures: (i) Quick measures which are templates of sorts (ii) There are measures we build from scratch
+
+We want to create a quick measure in Orders table that will give us the average sales based on customer segment
+
+* Right click on Orders table in the field pane
+* Select New quick measure.
+* A dialog box will open
+* Select the calculation type you want. In this case we will select **Total for category (filters not applied)
+* For the **Base value** 
+* We will expand the **Orders table** and we will drag the **sales** field into the base value text box. We will click on the more option button, click on more option button under **Summerization** and select **average**
+* For **Category** in the field list, we are going to drag the **customer segment** field into the category box
+* Click on **add**
+> Note: It won't become part of your data set, so when you do a calculate column, it puts it at the end on the right of your dataset. However, you will your measure in the field pane and notice the icon in front of it that represent that it is a measure. You won't see this in a data view, you can only see it on a report visualization.
+>
+
+Now we are goint to calculate a measure from scratch to calculate the average sales per product category for the orders table.
+* Right click on orders.
+* Click new measure, it will take us to the formular bar.
+*  We will name it **Average sales per product category** 
+*  Average sales per product category = CALCULATE(AVERAGE(Orders[Sales]),ALLSELECTED(Orders[Product Category]))
+
+> **ALLSELECTED** returns all rows in a table, or all the values in a column, ignoring any filters that might have been applied inside the query, but keeping filter that come from outside.
+
+
+##### Working with Time Intelligence Functions and Key Performance
+In order to use **Time Intelligence Functions** in Power BI, you have to have what is known as a **date table** in your data model. We don't have a date table in our data model, so we will create one. There are two different DAX functions that we can use to do this. Which are: 
+**(i) Calendar function** For the calendar function to work you have to provide it with a start and an end date, and it will build a table for you with one column with all of those dates.
+
+**(ii)calendar auto** This is the second function and that one can scan your data and determine the earliest date and the latest date in your data model.
+
+Wer are going to use calendar auto. It will return one column with all of the dates in the data model. After we create that table, we are going to amend it by adding other columns. Let's get started:
+
+* Select orders in your field pane
+* From **table tools** ribbon, click on **new table**
+* In the formular bar, we will double click on the word table and rename it **dates**
+* Dates = CALENDARAUTO()
+  * this displays our earliest date and the latest date in our data model and every dates in between is in one column in this new table.
+* In addition to having the full date column, we would like in this table to have the year of each date in a separate column, as well as the quarter and the month in two different ways.
+* So we are going to nest our **calendar auto function** within an **add column function** 
+* And to do that, you will click after the equal sign right before **calendar auto** in the formular bar. 
+* And you start typing: 
+  1. Dates = ADDCOLUMNS(CALENDARAUTO(),"Year",YEAR([Date]),
+  2. "Quarter","Q"&QUARTER([Date]),
+  3. "Month",FORMAT([Date],"mmmm"),
+  4. "Month Number",MONTH([Date])
+  5. ) press enter
+  6. In the field pane right click in Datee table
+  7. Select **mark as date table**
+  8. Select **Date**
+  9. We need to relate the **dates table** to our **orders table**
+  10. Click on Model view 
+  11. From the orders table, we will drag **order date** and drop it on the **date** in the dates table.
+  12. And that will create many to one relationship 
+  
+We are going to add two more calculated columns to our data, for the orders table. We want to show the end of the month for each order and another to show the end of the quarter for each order. 
+
+One of a time intelligence functions in Power BI is **end of month** 
+
+* Right click on orders table
+* Name it **end of month** 
+* End of Month = ENDOFMONTH(Orders[Order Date])
+
+* Right click on orders table
+* Name it **end of quarter** 
+* End of Month = ENDOFQUARTER(Orders[Order Date])
+
+Let's go ahead to format these two columns so they match the order and ship date column formats.
+
+* Click on the **End of Month** column 
+* Go to the column tools tab, click on the dropdown button under **format**
+* Select the date format that says: **March 14, 2001 (mmmm d, yyyy)**
+* Do the same for **End of Quarter**
