@@ -450,3 +450,66 @@ Let's go ahead to format these two columns so they match the order and ship date
 * Go to the column tools tab, click on the dropdown button under **format**
 * Select the date format that says: **March 14, 2001 (mmmm d, yyyy)**
 * Do the same for **End of Quarter**
+
+##### Creating KPI Visualization
+Key Performance Indicator (KPI) ia a key indicator of progress toward an intended result. It's a visualization tyoe in Power BI 
+
+* From the report view, add new page 
+* From the field pane, expand the sales table 
+* We will drag the **total units this year** into the centre of the screen.
+* We will expand the **Time table** in the field pane and we will drag the **fiscal month** field into the the highlighted box on the kansas 
+* We would perform a sort before turning it into KPI visualization 
+* We will sort this in ascending order by fiscal month 
+* In the upper right corner of the visualization, you will see the more option vetical ellipsis icon
+* Click on Sort axis
+* Select fiscal month and then select ascending 
+* In the visualization pane look for the KPI visualization and click on it. 
+* We need to add a field for target goals. We will then drag **Total unit last year** and drop it into the **Target** box
+* The shaded area is our goal, it tells us the value and the goal, it also gave the percentage difference
+* Rename the page to KPI  
+
+##### Optimizing Model Performance 
+If file size is a consideration and the data is very large and/or data is changing frequently and reports must reflect the latest data, use **DirectQuery.** 
+
+**DirectQuery** connects directly to data in the original source repository (SQL server, Azure Analysis Services, etc.) and no data is imported into Power BI. When visualizations are created, queries are sent to the underlying data source to retrieve necessary data. 
+
+Upon refresh, the necessary queries are resent for each visual for updating.
+
+When publishing reports to the service, you will see a dataset as well as the reports, however, no data is included in the dataset.
+
+One of the data sources that you can use DirectQuery on is Power BI dataset. In order to do this, that dataset needs to be published to the service.
+
+> Note: Data Sources that are supported with DirectQuery, depending on which one you choose, you are going to have to do something different. For instance,
+> Sequel server is a data source that is supported by DirectQuery
+>
+
+
+We want to access direct query from a new Power BI file. 
+* Click on File 
+* Select New 
+* On the Home tab under Data, click on **OneLake catalog** or **Get data** 
+* Select Power BI semantic models or Power BI dataset. It will only show you the datasets that are published to the service
+* Click on Retail Analysis Sample 
+* Click the create or connect button 
+* Let's save it and name it DirectQuery
+
+There is no data view because it didn't bring in any data from the underlying source 
+
+We are going to recreate the KPI report 
+
+>Note: You have to sort befor turning it into KPI, because the KPI doesn't allow sorting 
+
+
+* We will drag the **total units this year** into the centre of the screen.
+* We will expand the **Time table** in the field pane and we will drag the **fiscal month** field into the the highlighted box on the kansas 
+* Click on More option in the upper right-hand corner of the visualization
+* Click on sort axis and select Fiscal Month
+* Go back again and click on sort ascending 
+* In the visualization pane look for the KPI visualization and click on it. 
+  * When we did that, it actually sent a question to the underlying data source to retrieve the information for this visualization 
+
+##### What are Variables?
+As a data modeler, writing and debugging some DAX calculations can be challenging. It's common that complex calculation requirements often involve writing compound or complex expressions. Compound expressions can involve the use of many nested functions, and possibly the reuse of expression logic. Using variables in your DAX formulas helps you write complex and efficient calculations.
+
+You can store the result of an expression as a named variable, which can then be passed as an argument to other measure expression, thosevalues do not change, even if the variableis referenced in another expression. 1:05:16
+
