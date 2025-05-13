@@ -123,6 +123,27 @@ Format and Finish
 * Select where you want the new columns to appear (default is the same column).
 * Click Finish.
 
+#### To create a formula in Google Sheets that highlights a cell red if the price is higher than a specific amount, use Conditional Formatting. Here's how:
+
+Step-by-Step Guide:Select the cells you want to apply the rule to (e.g., prices in column B).
+
+
+* Click on Format in the top menu.
+
+* Select Conditional formatting.
+
+* In the right-hand panel:
+
+* Under Format cells if, choose "Custom formula is".
+
+* Enter this formula (replace 100 with your specific threshold and adjust the cell reference if needed):
+
+
+* =B1>100
+* Choose a red fill color under the Formatting style.
+
+* Click Done.
+
 
 
 ## Power BI
@@ -512,4 +533,19 @@ We are going to recreate the KPI report
 As a data modeler, writing and debugging some DAX calculations can be challenging. It's common that complex calculation requirements often involve writing compound or complex expressions. Compound expressions can involve the use of many nested functions, and possibly the reuse of expression logic. Using variables in your DAX formulas helps you write complex and efficient calculations.
 
 You can store the result of an expression as a named variable, which can then be passed as an argument to other measure expression, thosevalues do not change, even if the variableis referenced in another expression. 1:05:16
+
+
+## Python 
+After downloading the app from anaconda.com You install it, You click on Anaconda Navigator, Launch Notebook, Click on New and select Python (ipykernel). A new page will be opened ![alt text](image.png) this is where we will write all of our codes. 
+
+Type print ('Hello world') press **Shift+enter** to run it
+
+### Variables in Python
+* x = 22
+* print (x)   //22
+
+* y = 'mint chocolate chip'
+* print (y)  // mint chocolate chip
+
+Variables are case sensitive, we can assign multiple values to multiple variables
 
