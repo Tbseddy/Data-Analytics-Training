@@ -17,6 +17,14 @@ You can use this when you have multiple condition
 
 =IFS(F2:F10="Salesman","Sales",F2:F10="HR","Fire Immediately",F2:F10="Regional Manager","Give Christmas Bonus")
 
+
+* 1-9 = 6000
+* 10-19 = 7000
+* 20-29 = 8000
+* 30+ = 9000
+
+=IFS(D5<=9,6000,D5<=19,7000,D5<=29,8000,D5>=30,9000)
+
 #### LEN
 This can be used to see the difference between 100s and thousands. It can be used to find bad social security numbers if they are 10 digits instead of 9
 
@@ -143,6 +151,12 @@ Step-by-Step Guide:Select the cells you want to apply the rule to (e.g., prices 
 * Choose a red fill color under the Formatting style.
 
 * Click Done.
+
+If you want cells in range B2:B100 to turn red when the price is greater than $50:
+
+Select B2:B100
+
+Use the formula: =B2>50
 
 
 
