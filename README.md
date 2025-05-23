@@ -618,7 +618,7 @@ We can also assign list, sets, and tuples all to variables
 ### Data Types in Python
 * Numeric: 3 types of numeric data type: integer, float & complex numbers.
 * Sequence type: It includes list, strings & tuples
-* * Strings are arrays of bytes representing unicode characters. When you are using string you are putting them in either double or single quote
+   * Strings are arrays of bytes representing unicode characters. When you are using string you are putting them in either double or single quote.
 * Set
 * Boolean: It has only two built-in values either True or False
 * Dictionary
