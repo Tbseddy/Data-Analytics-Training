@@ -17,6 +17,7 @@ You can use this when you have multiple condition
 
 =IFS(F2:F10="Salesman","Sales",F2:F10="HR","Fire Immediately",F2:F10="Regional Manager","Give Christmas Bonus")
 
+* Another IFS statement
 
 * 1-9 = 6000
 * 10-19 = 7000
@@ -24,6 +25,19 @@ You can use this when you have multiple condition
 * 30+ = 9000
 
 =IFS(D5<=9,6000,D5<=19,7000,D5<=29,8000,D5>=30,9000)
+
+* Another IFS statement
+
+* If D5 is 9 or less → "1-9 Sales"
+
+* If D5 is between 10 and 19 → "10-19 Sales"
+
+* If D5 is between 20 and 29 → "20-29 Sales"
+
+* If D5 is 30 or more → "30+ Sales"
+
+=IFS(D5<=9,"1-9 Sales", D5<=19,"10-19 Sales", D5<=29,"20-29 Sales", D5>=30,"30+ Sales")
+
 
 #### LEN
 This can be used to see the difference between 100s and thousands. It can be used to find bad social security numbers if they are 10 digits instead of 9
@@ -550,7 +564,9 @@ You can store the result of an expression as a named variable, which can then be
 
 
 ## Python 
-After downloading the app from anaconda.com You install it, You click on Anaconda Navigator, Launch Notebook, Click on New and select Python (ipykernel). A new page will be opened ![alt text](image.png) this is where we will write all of our codes. 
+After downloading the app from anaconda.com You install it, You click on Anaconda Navigator, Launch Notebook (jupyter), Click on New and select Python (ipykernel). A new page will be opened ![alt text](image.png) this is where we will write all of our codes. 
+
+To give it a header e.g Variables select markdown and type # Variables.
 
 Type print ('Hello world') press **Shift+enter** to run it
 
@@ -563,3 +579,46 @@ Type print ('Hello world') press **Shift+enter** to run it
 
 Variables are case sensitive, we can assign multiple values to multiple variables
 
+* x,y,z ='chocolate', 'vanilla', 'rocky road'
+* print (x)
+* print (y)
+* print (z)
+
+Assigning multiple variables to one value
+
+* x = y = z = 'Root bear Float'
+* print (x)
+* print (y)
+* print (z)
+
+We can also assign list, sets, and tuples all to variables
+
+* ice_cream = ['chocolate', 'vanilla', 'rocky road']
+* x,y,z = ice_cream
+* print (x)
+* print (y)
+* print (z)
+
+#### Method of naming a variable 
+* Camel case method of naming a variable e.g. 
+* * testVariableCase = 'vanilla'
+  
+* Pascal case
+*  * TestVariableCase = 'vanilla'
+
+* * Snake case (Best practises b/c it enhances readability)
+*  * test_variable_case = 'vanilla'
+
+
+* x = 'Ice cream'
+* y = ' is'
+* z = ' my favourite'
+* print(x+y+z)
+
+### Data Types in Python
+* Numeric: 3 types of numeric data type: integer, float & complex numbers.
+* Sequence type: It includes list, strings & tuples
+* * Strings are arrays of bytes representing unicode characters. When you are using string you are putting them in either double or single quote
+* Set
+* Boolean: It has only two built-in values either True or False
+* Dictionary
